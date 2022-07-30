@@ -56,9 +56,11 @@ public class FloatingTextGenerator : MonoBehaviour
     {
         GameObject floater = Instantiate(floatingTextPrefab);
         FloatingText text = floater.GetComponent<FloatingText>();
+
         text.maxHeight = maxHeight;
         text.maxWiggle = maxWiggle;
         text.lifetime = lifetime;
+
         text.SetTextSize(size);
         text.SetText(s);
     }
