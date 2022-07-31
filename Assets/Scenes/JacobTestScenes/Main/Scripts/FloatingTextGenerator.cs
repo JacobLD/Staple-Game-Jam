@@ -12,14 +12,14 @@ public class FloatingTextGenerator : MonoBehaviour
     public float maxHeight = 10.0f;
     [Range(0.1f, 100.0f)]
     public float maxWiggle = 1.0f;
-    [Range(18, 100)]
-    public float maxTextSize = 72;
-    [Range(18, 100)]
-    public float minTextSize = 72;
-    [Range(18, 100)]
-    public float minValueSize = 0;
-    [Range(18, 100)]
-    public float maxValueSize = 72;
+    [Range(6, 24)]
+    public float maxTextSize = 6;
+    [Range(0, 6)]
+    public float minTextSize = 6;
+    [Range(0, 50)]
+    public float minValueSize = 50;
+    [Range(50, 100)]
+    public float maxValueSize = 50;
 
 
     [Header("Debugging")]
@@ -47,7 +47,7 @@ public class FloatingTextGenerator : MonoBehaviour
 
     public void DebugGenerate()
     {
-        float value = Random.Range(minValueSize, maxValueSize);
+        int value = (int)Random.Range(minValueSize, maxValueSize);
         float fontSize = Mathf.Lerp(minTextSize, maxTextSize, value / (maxValueSize - minValueSize));
         Generate(value.ToString(), fontSize);
     }
