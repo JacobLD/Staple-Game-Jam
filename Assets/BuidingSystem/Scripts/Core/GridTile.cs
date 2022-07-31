@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 public class GridTile : MonoBehaviour
 {
     public enum Type
@@ -21,10 +22,21 @@ public class GridTile : MonoBehaviour
     [HideInInspector]
     public GridSystem parent;
     public Vector2 positionInGrid;
-
     public bool IsEmpty()
     {
         return type == Type.Empty;
+    }
+
+    private void OnMouseEnter()
+    {
+        parent.selected = transform.gameObject;
+        parent.onMouseEnter.Invoke();
+    }
+
+    private void OnMouseExit()
+    {
+        parent.onMouseExit.Invoke();
+        parent.selected = null;
     }
 
     public GridTile GetNeighbour(Direction dir)
