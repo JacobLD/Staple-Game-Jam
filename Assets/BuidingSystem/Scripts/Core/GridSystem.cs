@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GridSystem : MonoBehaviour
 {
@@ -14,8 +15,13 @@ public class GridSystem : MonoBehaviour
     public GameObject factory;
     public GameObject house;
     public GameObject warehouse;
-    int gridX = 50;
-    int gridY = 50;
+    [Space]
+    public GameObject selected;
+    public UnityEvent onMouseEnter;
+    public UnityEvent onMouseExit;
+
+    private readonly int gridX = 50;
+    private readonly int gridY = 50;
 
     private void Awake()
     {

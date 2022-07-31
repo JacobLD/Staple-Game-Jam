@@ -12,6 +12,10 @@ public class GenerateGrid : MonoBehaviour
     private Vector3 lastPos;
     private Vector3 originPos;
     public List<GameObject> spawnedTiles = new List<GameObject>();
+    private void Awake()
+    {
+        generateGrid();
+    }
     public void generateGrid()
     {
         lastPos = (Vector2)new Vector3(0, 0, 0);
