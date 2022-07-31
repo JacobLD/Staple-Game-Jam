@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 public class BuildingSystem : MonoBehaviour
 {
     public enum TileToPlace
     {
         Factory,
         House,
-        WareHouse
+        WareHouse,
+        NotBuilding
     }
     public TileToPlace tile;
     public GridSystem Grid;
@@ -27,5 +29,11 @@ public class BuildingSystem : MonoBehaviour
     public void EndPreview()
     {
         Grid.selected.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public void OnMousePush(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            Grid.selected.GetComponent<SpriteRenderer>().color = Color.blue;
     }
 }
